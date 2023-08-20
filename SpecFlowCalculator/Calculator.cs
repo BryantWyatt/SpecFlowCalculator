@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SpecFlowCalculator
+﻿namespace SpecFlowCalculator
 {
     public class Calculator
     {
