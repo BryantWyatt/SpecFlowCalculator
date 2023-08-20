@@ -79,6 +79,11 @@ jobs:
   - task: SpecFlowPlus@0
     displayName: SpecFlow+ build step.
     inputs:
+      generatorSource: 'FeatureFolder'
       projectFilePath: SpecFlowCalculator.Specs
-      testExecutionJson: $(Build.SourcesDirectory)\SpecFlowCalculator\SpecFlowCalculator.Specs\bin\Debug\net6.0\TestExecution.json
+      testExecutionJson: SpecFlowCalculator.Specs/**/TestExecution.json
       projectLanguage: en
+      bindingAssemblies: |
+        SpecFlowCalculator.Specs/**/SpecFlowCalculator.Specs.dll
+        SpecFlowCalculator.Specs/**/SpecFlowCalculator.dll
+      output: 'LivingDoc/MyFeatureData.json'
