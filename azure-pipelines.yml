@@ -76,7 +76,10 @@ jobs:
   - task: CopyFiles@2
     displayName: 'Copy Test Results'
     inputs:
-      targetFolder: $(Build.SourcesDirectory)\SpecFlowCalculator\SpecFlowCalculator.Specs\bin\Debug\net6.0\TestExecution.json
+      Contents: |
+        **\bin\**
+        **\obj\**
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
   - task: SpecFlowPlus@0
     displayName: SpecFlow+ build step.
     inputs:
