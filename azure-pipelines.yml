@@ -46,9 +46,12 @@ jobs:
       PublishSymbols: false
       SymbolServerType: TeamServices
   - task: CopyFiles@2
-    displayName: 'Copy Build Artifacts'
+    displayName: 'Copy Artifacts'
     inputs:
-      targetFolder: $(build.artifactstagingdirectory)
+      Contents: |
+        **\bin\**
+        **\obj\**
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
   - task: PublishBuildArtifacts@1
     displayName: Publish Artifact
     condition: succeededOrFailed()
@@ -73,13 +76,6 @@ jobs:
         !**\*TestAdapter.dll
 
         !**\obj\**
-  - task: CopyFiles@2
-    displayName: 'Copy Test Results'
-    inputs:
-      Contents: |
-        **\bin\**
-        **\obj\**
-      targetFolder: '$(Build.ArtifactStagingDirectory)'
   - task: SpecFlowPlus@0
     displayName: SpecFlow+ build step.
     inputs:
