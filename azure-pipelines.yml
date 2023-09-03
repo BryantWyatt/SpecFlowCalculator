@@ -81,9 +81,14 @@ jobs:
     inputs:
       generatorSource: 'FeatureFolder'
       projectFilePath: SpecFlowCalculator.Specs
+      projectName: 'SpecFlowCalculator'
       testExecutionJson: SpecFlowCalculator.Specs/**/TestExecution.json
       projectLanguage: en
       bindingAssemblies: |
         SpecFlowCalculator.Specs/**/SpecFlowCalculator.Specs.dll
         SpecFlowCalculator.Specs/**/SpecFlowCalculator.dll
       output: 'LivingDoc/MyFeatureData.json'
+    enabled: false
+    continueOnError: true
+    condition: always()
+    timeoutInMinutes: 10
